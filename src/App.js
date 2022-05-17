@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+// React
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+// Pages
+import Home from './pages/Home';
+import SignIn from './pages/SignIn';
+import Dashboard from './pages/Dashboard';
+import Transaction from './pages/Transaction';
+import Error from './pages/Error';
+// Components
+import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+   const store = useSelector((state) => state);
+
+   return (
+      <>
+         <Header />
+         <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+               path="/dashboard"
+               element={
+                  store.token ? (
+                     <Dashboard />
+                  ) : (
+                     <Navigate to="/signIn" replace />
+                  )
+               }
+            />
+            <Route path="/signIn" element={<SignIn />} />
+            <Route
+               path={store.token && '/transactions'}
+               element={<Transaction />}
+            />
+            <Route path="*" element={<Error />} />
+         </Routes>
+         <Footer />
+      </>
+   );
+};
 
 export default App;
