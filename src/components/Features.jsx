@@ -6,7 +6,7 @@ const Features = (props) => {
          <img src={props.icon} alt={props.icAlt} className="feature-icon" />
          <h3 className="feature-item-title">{props.title}</h3>
          <p>
-            {props.descript}
+            {props.descipt}
          </p>
       </div>
    )

@@ -1,49 +1,88 @@
-// React
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-// Components
-import Features from '../components/Features';
-// Assets
-import icoMoney from './../assets/img/icon-money.png';
-import icoChat from './../assets/img/icon-chat.png';
-import icoSecu from './../assets/img/icon-security.png';
+import DataLine from '../components/DataLine';
+import TransTitle from '../components/TransTitle';
 
-const Home = () => {
+const Transaction = () => {
    return (
       <HelmetProvider>
          <Helmet>
-            <title>Argent Bank - Welcome</title>
+            <title>Argent Bank - Transactions Page</title>
          </Helmet>
-         <main>
-            <div className="hero">
-               <section className="hero-content">
-                  <h2 className="sr-only">Promoted Content</h2>
-                  <p className="subtitle">No fees.</p>
-                  <p className="subtitle">No minimum deposit.</p>
-                  <p className="subtitle">High interest rates.</p>
-                  <p className="text">Open a savings account with Argent Bank today!</p>
-               </section>
-            </div>
-            <section className="features">
-               <Features
-                  icon={icoMoney}
-                  icAlt="Chat Money"
-                  title="More savings means higher rates"
-                  descript="The more you save with us, the higher your interest rate will b11e!" />
-               <Features
-                  icon={icoChat}
-                  icAlt="Chat Icon"
-                  title="You are our #1 priority"
-                  descript="Need to talk to a representative? You can get in touch through our 24/7 1chat or through a phone call in less than 5 minutes." />
-               <Features
-                  icon={icoSecu}
-                  icAlt="Chat Secu"
-                  title="Security you can trust"
-                  descript="We use top of the line encryption to make sure your data and money is always safe." />
-            </section>
-         </main>
+         <div>
+            <TransTitle
+               title="Argent Bank Checking (x8349)"
+               amount="$2,082.79"
+               amountDescr="Available Balance"
+            />
+            <main id="transpage" className="main bg-dark">
+               <div className="dataHead">
+                  <div id="arrow" className="dataLineItem"></div>
+                  <div id="date" className="dataLineItem">
+                     DATE
+                  </div>
+                  <div id="descr" className="dataLineItem">
+                     DESCRIPTION
+                  </div>
+                  <div id="amount" className="dataLineItem">
+                     AMOUNT
+                  </div>
+                  <div id="balance" className="dataLineItem">
+                     BALANCE
+                  </div>
+               </div>
+               <DataLine
+                  date="June 20th, 2020"
+                  descr="Golden Sun Bakery"
+                  amount="$5.00"
+                  balance="$2082.79"
+                  transType="Electronic"
+                  category="Food"
+               />
+               <DataLine
+                  date="June 20th, 2020"
+                  descr="Golden Sun Bakery"
+                  amount="$10.00"
+                  balance="$2087.79"
+                  transType="Electronic"
+                  category="Food"
+               />
+               <DataLine
+                  date="June 20th, 2020"
+                  descr="Golden Sun Bakery"
+                  amount="$20.00"
+                  balance="$2097.79"
+                  transType="Electronic"
+                  category="Food"
+               />
+               <DataLine
+                  date="June 20th, 2020"
+                  descr="Golden Sun Bakery"
+                  amount="$30.00"
+                  balance="$2117.79"
+                  transType="Electronic"
+                  category="Food"
+               />
+               <DataLine
+                  date="June 20th, 2020"
+                  descr="Golden Sun Bakery"
+                  amount="$40.00"
+                  balance="$2147.79"
+                  transType="Electronic"
+                  category="Food"
+               />
+               <DataLine
+                  date="June 20th, 2020"
+                  descr="Golden Sun Bakery"
+                  amount="$50.00"
+                  balance="$2187.79"
+                  transType="Electronic"
+                  category="Food"
+               />
+            </main>
+         </div>
       </HelmetProvider>
    );
 };
 
-export default Home;
+export default Transaction;
