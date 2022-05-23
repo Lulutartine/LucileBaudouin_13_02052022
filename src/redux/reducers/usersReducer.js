@@ -1,12 +1,8 @@
-/**
- * @typedef {import("../actions/actions").actionsTypes} actionsTypes
- */
  import { initialState } from '../store/store';
  import { clearStorage } from '../../service/storage';
  import { setBearer } from '../../service/service';
  
  /**
-  *
   * @param {Object} state
   * @param {Object} action
   * @param {Object} action.payload
